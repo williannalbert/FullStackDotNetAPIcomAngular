@@ -1,0 +1,35 @@
+Passos
+1 - instalar o angular
+npm install -g @angular/cli@11.1.4
+
+2 - iniciar o projeto
+ng new ProEventosApp
+(selecionar y em tudo e SCCS)
+
+3 - adicionar o HttpClientModule no app.module.ts para conseguir consumir APIs
+
+4 - adicionar o private http:HttpClient no construtor da component.ts que ira consumir a API
+
+5 - configurar o CORS
+
+6 - instalar fontawesome e bootstrap
+npm install @fortawesome/angular-fontawesome
+npm install ngx-bootstrap --save
+npm install bootstrap@4
+
+7 - os estilos foram baixados manualmente, necessário importa-los no styles.scss
+ou usar ng add ngx-bootstrap, e confirmar de em app.module.ts tem BrowserAnimationsModule
+
+ 
+
+extensões vscode
+
+Angular Essentials (Version 16)
+Angular Files
+Auto Close Tag
+Auto Rename Tag
+Bracket Pair Color DLW
+Color Highlight
+Gitlens
+Path Intellisense
+TSLint

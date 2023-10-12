@@ -1,0 +1,19 @@
+Passos
+
+1 - Iniciar projeto e incluir Controllers, Models, DbContext
+
+2 - Instalar pacotes 
+Microsoft.EntityFrameworkCore - 5.0.2
+Microsoft.EntityFrameworkCore.Design - 5.0.2
+Microsoft.EntityFrameworkCore.Sqlite - 5.0.2
+Microsoft.EntityFrameworkCore.Tools - 5.0.2
+
+3 - Instalar dotnet-ef tool de forma global
+
+4 - Criar Migrations
+dotnet ef migrations add nomedamigration -o Data/Migrations
+
+5 - Adicionar migratitons ao banco
+dotnet ef database update
+
+6 - usar DB Browser for SQLite para rodar o Sqlite
