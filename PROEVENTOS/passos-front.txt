@@ -20,7 +20,17 @@ npm install bootstrap@4
 7 - os estilos foram baixados manualmente, necessário importa-los no styles.scss
 ou usar ng add ngx-bootstrap, e confirmar de em app.module.ts tem BrowserAnimationsModule
 
- 
+8 - adicionar o ngx bootstrap collapse 
+https://valor-software.com/ngx-bootstrap/old/6.2.0/#/collapse
+a opção Usage copiar a linha de recommended no app modules e incluir no @ngmodule também
+(informacções no With animation - template)
+e no html usar o (click)="isCollapsed = !isCollapsed" no elemento que clica
+e [collapse]="isCollapsed" [isAnimated]="true" no elemento collapse
+(informacções no With animation - component)
+colar isCollapsed = false; no typescript do html
+
+9 - Imagens são incluídas em assets pois são ficam em seu estado original, não sofrem build ou conversão
+
 
 extensões vscode
 
