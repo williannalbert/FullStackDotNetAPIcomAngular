@@ -31,6 +31,12 @@ colar isCollapsed = false; no typescript do html
 
 9 - Imagens são incluídas em assets pois são ficam em seu estado original, não sofrem build ou conversão
 
+10 - Na busca de eventos é feito o two way data binding "[(ngModel)]", mas é necessário inicializar o FormsModule em app.modules
+
+Dicas
+
+eventos | json retorna o json na tela
+
 
 extensões vscode
 

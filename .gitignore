@@ -500,4 +500,6 @@ testem.log
 .DS_Store
 Thumbs.db
 
-ProEventos.db
+*.db
+*.db-shm
+*.db-wal
