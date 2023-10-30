@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "DqKTdyqEitnh87t23lbmrWfoTfxU/fQPSmHauEpCjpL+Qi8EQPziCNGK6lmUTZLlPmvMyAO3G/u0lS9+usuDDw==",
+  "dgSpecHash": "n6RiQj3D6wfHyoPPYyKgcqT/0L5IDZ9M4zRCM/+ElyST8IBi8ANEr5rJltHvIVCi2Vx7V/gTpxpJWvlUlpCupg==",
   "success": true,
   "projectFilePath": "E:\\Projetos\\FullStackDotNetAPIcomAngular\\PROEVENTOS\\BackEnd\\src\\ProEventos.API\\ProEventos.API\\ProEventos.API.csproj",
   "expectedPackageFiles": [

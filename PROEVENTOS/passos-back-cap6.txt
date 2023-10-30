@@ -1,0 +1,41 @@
+Dicas e passos do capitulo 6
+
+1 - Criar a solução do projeto (caso esteja no visual studio a solução já está criada)
+
+2 - Criar classes libraries no caminho src
+dotnet new classlib -n ProEventos.Persistence
+
+dotnet new classlib -n ProEventos.Domain
+
+dotnet new classlib -n ProEventos.Application
+
+3 - vincular as classes acima a solução
+
+dotnet sln ProEventos.API add ProEventos.Application
+
+dotnet sln ProEventos.API add ProEventos.Domain
+
+dotnet sln ProEventos.API add ProEventos.Persistence
+
+4 - referenciando as classes no projeto.api
+**observar se está realizando o caminho na pasta src
+dotnet add ProEventos.API/ProEventos.API/ProEventos.API.csproj reference ProEventos.Application
+
+adicionar os "ProjectReference" nas soluções
+
+5 - movimentação e alteração de arquivos
+a classe de evento foi movida para ProEventos.Domain
+a classe DataContext foi movida para ProEventos.Persistence
+as migrations e o banco foram excluídos
+
+6 - instalação de entityfrmaework no ProEventos.Persistence v-5.0.3
+
+7 - setar o console na pasta src e rodar a migrations. 
+*se atentar aos caminhos dos csproj
+
+-p é para relacionar o projeto que possui o contexto
+-s é para apontar um projeto que não tenha o dotnet standard // class library(persistence). Para rodar o entity é necessário de um .net core ou framework
+
+dotnet ef migrations add Initial -p ..\ProEventos.Persistence -s ProEventos.API
+
+dotnet ef database update -s ProEventos.API
