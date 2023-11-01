@@ -57,3 +57,7 @@ E:\Projetos\FullStackDotNetAPIcomAngular\PROEVENTOS\BackEnd\src\ProEventos.API\P
 E:\Projetos\FullStackDotNetAPIcomAngular\PROEVENTOS\BackEnd\src\ProEventos.API\ProEventos.API\obj\Debug\net6.0\ProEventos.API.pdb
 E:\Projetos\FullStackDotNetAPIcomAngular\PROEVENTOS\BackEnd\src\ProEventos.API\ProEventos.API\obj\Debug\net6.0\ProEventos.API.genruntimeconfig.cache
 E:\Projetos\FullStackDotNetAPIcomAngular\PROEVENTOS\BackEnd\src\ProEventos.API\ProEventos.API\obj\Debug\net6.0\ref\ProEventos.API.dll
+E:\Projetos\FullStackDotNetAPIcomAngular\PROEVENTOS\BackEnd\src\ProEventos.API\ProEventos.API\bin\Debug\net6.0\Microsoft.AspNetCore.JsonPatch.dll
+E:\Projetos\FullStackDotNetAPIcomAngular\PROEVENTOS\BackEnd\src\ProEventos.API\ProEventos.API\bin\Debug\net6.0\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
+E:\Projetos\FullStackDotNetAPIcomAngular\PROEVENTOS\BackEnd\src\ProEventos.API\ProEventos.API\bin\Debug\net6.0\Newtonsoft.Json.dll
+E:\Projetos\FullStackDotNetAPIcomAngular\PROEVENTOS\BackEnd\src\ProEventos.API\ProEventos.API\bin\Debug\net6.0\Newtonsoft.Json.Bson.dll

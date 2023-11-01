@@ -41,3 +41,17 @@ dotnet ef migrations add Initial -p ..\ProEventos.Persistence -s ProEventos.API
 dotnet ef database update -s ProEventos.API
 
 8 - criação de interface em ProEventos.Persistence
+
+9 - no Startup é necessário incluir as linhas abaixo, devido a injeção de dependência na controller de eventos e na service
+services.AddScoped<IEventoService, EventoService>();
+services.AddScoped<IGeralPersist, GeralPersist>();
+services.AddScoped<IEventoPersist, EventoPersist>();
+
+10 - ao realizar update, pela model estar em memoria na variavel que retornou os dados do banco, é necessário adicionar o notracking na classe de persistence
+caso sua aplicação precise armazenar essas informações de tracking, a opção é deixar essa linha dentro de cada método
+
+_context.ChangeTracker.QueryTrackingBehavior = QueryTrackingBehavior.NoTracking;
+
+11 - devido ao erro em looping ao chamar evento e lote, é necessário instalar a classe abaixo e adicionar no controller na startup
+
+Microsoft.AspNetCore.Mvc.NewtonsoftJson v-5.0.3
