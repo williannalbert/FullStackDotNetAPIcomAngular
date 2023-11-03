@@ -66,7 +66,7 @@ namespace ProEventos.Application
                 if (evento == null)
                     throw new Exception("Evento não encontrado");
 
-                _geralPersist.Delete(evento);
+                _geralPersist.Delete<Evento>(evento);
                 return await _geralPersist.SaveChangesAsysnc();
             }
             catch (Exception ex)

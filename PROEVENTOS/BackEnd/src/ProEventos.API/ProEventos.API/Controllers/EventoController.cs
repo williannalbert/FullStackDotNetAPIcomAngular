@@ -93,7 +93,7 @@ public class EventoController : ControllerBase
         }
     }
     [HttpDelete("{id}")]
-    public async Task<IActionResult> Post(int id)
+    public async Task<IActionResult> Delete(int id)
     {
         try
         {

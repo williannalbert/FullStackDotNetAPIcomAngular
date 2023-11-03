@@ -101,8 +101,8 @@ namespace ProEventos.Persistence.Migrations
                         .Annotation("Sqlite:Autoincrement", true),
                     Nome = table.Column<string>(type: "TEXT", nullable: false),
                     URL = table.Column<string>(type: "TEXT", nullable: false),
-                    EventoId = table.Column<int>(type: "INTEGER", nullable: true),
-                    PalestranteId = table.Column<int>(type: "INTEGER", nullable: true)
+                    EventoId = table.Column<int>(type: "INTEGER", nullable: false),
+                    PalestranteId = table.Column<int>(type: "INTEGER", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -111,12 +111,14 @@ namespace ProEventos.Persistence.Migrations
                         name: "FK_RedeSociais_Eventos_EventoId",
                         column: x => x.EventoId,
                         principalTable: "Eventos",
-                        principalColumn: "Id");
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_RedeSociais_Palestrantes_PalestranteId",
                         column: x => x.PalestranteId,
                         principalTable: "Palestrantes",
-                        principalColumn: "Id");
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(
