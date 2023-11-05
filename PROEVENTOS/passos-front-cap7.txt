@@ -1,0 +1,9 @@
+1 - gerar interface clicando com o botão direito na pasta models e preencher os arquivos com as models
+
+2 - criar as services na pasta service clicando com o botão direito e gerando 
+
+3 - injeção de dependecia pode ser incluídos na service com o @injectable, na typscript do componente com //providers: [EventoService] ou na appmodules como providers: [EventoService]
+
+4 - se atentar a tipagem de funções na service
+
+
