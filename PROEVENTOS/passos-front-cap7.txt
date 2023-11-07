@@ -6,4 +6,10 @@
 
 4 - se atentar a tipagem de funções na service
 
+5 - criar pasta helpers para funções auxiliares, como a formatação da data. Botão direito e gerar pipe (ex: DateTimeFormat)
+esse pipe é usado no html de evento para formatação tipo uppercase
+**o pipe DateTimeFormat está extedendo o DatePipe e retornando o super para "sobrescrever" o Date
+**o nome do Pipe não pode ser o mesmo da classe. Ex: pipe = DateFormatPipe // classe DateTimeFormatPipe
+**Necessário incluir o Pipe criado na appmodules 
 
+6 - criar pasta  utils e suas classes 
