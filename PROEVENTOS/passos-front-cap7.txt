@@ -13,3 +13,22 @@ esse pipe é usado no html de evento para formatação tipo uppercase
 **Necessário incluir o Pipe criado na appmodules 
 
 6 - criar pasta  utils e suas classes 
+
+7 - adicionando tooltip, modal e dropdown na appmodules
+*informações tiradas do sitte ngx-bootstrap
+
+8 - adicionar o toaster
+site: https://www.npmjs.com/package/ngx-toastr
+
+npm install ngx-toastr@13.2.0 --save
+npm install @angular/animations@13.2.0 --save
+
+adicionar "node_modules/ngx-toastr/toastr.css"  no arquivio "angular.json"
+adicionar o ToastrModule na appmodules
+
+9 - adicionar o spinner e importar na appmodules
+site: https://www.npmjs.com/package/ngx-spinner/v/10.0.1
+
+npm i ngx-spinner@10.0.1
+
+junto com o spinner foi adicionado o schemas: [CUSTOM_ELEMENTS_SCHEMA] e importado em @core na mesma classe
