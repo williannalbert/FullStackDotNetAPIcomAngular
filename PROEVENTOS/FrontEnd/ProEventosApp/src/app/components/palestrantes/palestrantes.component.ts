@@ -10,19 +10,6 @@ export class PalestrantesComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    this.getPalestrantes()
   }
 
-  public getPalestrantes(){
-    this.palestrantes = [
-      {
-        nome: 'João Victor',
-        especializacao: 'Programador mobile'
-      },
-      {
-        nome: 'Felipe Santos',
-        especializacao: 'Administrador de banco de dados'
-      }
-    ]
-  }  
 }

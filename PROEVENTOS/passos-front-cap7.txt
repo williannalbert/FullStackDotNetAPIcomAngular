@@ -32,3 +32,16 @@ site: https://www.npmjs.com/package/ngx-spinner/v/10.0.1
 npm i ngx-spinner@10.0.1
 
 junto com o spinner foi adicionado o schemas: [CUSTOM_ELEMENTS_SCHEMA] e importado em @core na mesma classe
+alem disso, incluir no construtor da classe eventos e no html de appcomponents
+
+10 - para atualizar o angular esse é o comando (opcional pois projeto ja está no 11)
+ng update @angular/core @angular/cli
+
+11 - alterar eventos e palestrantes para pasta components e criar dashboard e perfil, e gerar componente de titulo em shared
+
+12 - o inicializador de variaveis padrão do angular foi desativado em tsconfig 
+"strictPropertyInitialization": false,
+
+13 - preencher as rotas em app-routing e por conta do router-outlet no app-component as informações são carregadas automaticamente
+
+14 - configurar os routerslinks e routerlinksactive em navcomponent
