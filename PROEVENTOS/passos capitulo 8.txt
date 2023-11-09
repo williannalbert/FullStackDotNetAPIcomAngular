@@ -1,0 +1,7 @@
+*sites para auxilio*
+https://bootsnipp.com/ - templates e components
+https://bootswatch.com/ - temas
+
+1 - instalar o bootswatch e importar no styles do app
+link https://github.com/thomaspark/bootswatch
+npm install bootswatch@4.6.2
