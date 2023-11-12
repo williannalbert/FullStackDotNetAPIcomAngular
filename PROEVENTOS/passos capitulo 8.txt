@@ -5,3 +5,18 @@ https://bootswatch.com/ - temas
 1 - instalar o bootswatch e importar no styles do app
 link https://github.com/thomaspark/bootswatch
 npm install bootswatch@4.6.2
+
+2 - feitos ajustes de layout ns components
+
+3 - criar dois components dentro de eventos (evento-lista, evento-detalhe)
+
+4 - criar sub rotas em app-routing (rotas filhas)
+*necessário incluir também o html de router-outlet no componente de eventos
+**se atentar nos eventos chamando as rotas. Ex: botao de listar e de novo
+
+5 - foram criados diversos components e o html foi copiado. Abaixo estão os comanndos para criação dos components
+lembrando que sempre dever ser rodados dentro da pasta proeventosapp
+
+ng g c components/user --module app
+ng g c components/user/login --module app
+ng g c components/user/registration --module app
