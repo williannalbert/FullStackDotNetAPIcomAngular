@@ -20,3 +20,14 @@ lembrando que sempre dever ser rodados dentro da pasta proeventosapp
 ng g c components/user --module app
 ng g c components/user/login --module app
 ng g c components/user/registration --module app
+
+6 - strictInjectionParameters quando true retornam informações que deveriam ser injetadas como erro, caso false retornam como warning
+strictTemplates quando true ajudam na tipagem 
+
+*essas informações são configuradas em tsconfig -> angularCompilerOptions
+**feita configuração de paths no mesmo arquivo
+
+7 - *reactive form*
+em evento-detalhe foram feitas alterações sobre o formGroup no ts, e o bind nos campos. Porém, é necessário inicializar isso no appmodules com o reactiveformmodule
+**importante o this.validation(); dentro de ngOnInit
+***olhar todas as configurações feitas nos campos do formulário
