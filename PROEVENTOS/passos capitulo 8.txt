@@ -31,3 +31,6 @@ strictTemplates quando true ajudam na tipagem
 em evento-detalhe foram feitas alterações sobre o formGroup no ts, e o bind nos campos. Porém, é necessário inicializar isso no appmodules com o reactiveformmodule
 **importante o this.validation(); dentro de ngOnInit
 ***olhar todas as configurações feitas nos campos do formulário
+
+8 - a classe de validação de senhas foi criado em shared 
+**está sendo aplicada em registration
