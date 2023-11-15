@@ -1,0 +1,11 @@
+alteração no backend
+1 - criação das DTOs em application
+
+2 - instalar o AutoMapper.Extensions.Microsoft.DependencyInjection - versão 8.1.1
+
+3 - inicializar o automapper no startup 
+
+4 - Criar pasta helpers e classe ProEventosProfile em application
+*para que o evento e o eventodto possam "ir e voltar", foi incluído o ReverseMap na profile
+
+5 - adicionar ao construtor de EventoService o automapper

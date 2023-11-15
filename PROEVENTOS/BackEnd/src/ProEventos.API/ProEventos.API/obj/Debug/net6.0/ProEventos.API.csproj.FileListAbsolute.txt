@@ -5,7 +5,11 @@ E:\Projetos\FullStackDotNetAPIcomAngular\PROEVENTOS\BackEnd\src\ProEventos.API\P
 E:\Projetos\FullStackDotNetAPIcomAngular\PROEVENTOS\BackEnd\src\ProEventos.API\ProEventos.API\bin\Debug\net6.0\ProEventos.API.runtimeconfig.json
 E:\Projetos\FullStackDotNetAPIcomAngular\PROEVENTOS\BackEnd\src\ProEventos.API\ProEventos.API\bin\Debug\net6.0\ProEventos.API.dll
 E:\Projetos\FullStackDotNetAPIcomAngular\PROEVENTOS\BackEnd\src\ProEventos.API\ProEventos.API\bin\Debug\net6.0\ProEventos.API.pdb
+E:\Projetos\FullStackDotNetAPIcomAngular\PROEVENTOS\BackEnd\src\ProEventos.API\ProEventos.API\bin\Debug\net6.0\AutoMapper.dll
+E:\Projetos\FullStackDotNetAPIcomAngular\PROEVENTOS\BackEnd\src\ProEventos.API\ProEventos.API\bin\Debug\net6.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
 E:\Projetos\FullStackDotNetAPIcomAngular\PROEVENTOS\BackEnd\src\ProEventos.API\ProEventos.API\bin\Debug\net6.0\Humanizer.dll
+E:\Projetos\FullStackDotNetAPIcomAngular\PROEVENTOS\BackEnd\src\ProEventos.API\ProEventos.API\bin\Debug\net6.0\Microsoft.AspNetCore.JsonPatch.dll
+E:\Projetos\FullStackDotNetAPIcomAngular\PROEVENTOS\BackEnd\src\ProEventos.API\ProEventos.API\bin\Debug\net6.0\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
 E:\Projetos\FullStackDotNetAPIcomAngular\PROEVENTOS\BackEnd\src\ProEventos.API\ProEventos.API\bin\Debug\net6.0\Microsoft.Data.Sqlite.dll
 E:\Projetos\FullStackDotNetAPIcomAngular\PROEVENTOS\BackEnd\src\ProEventos.API\ProEventos.API\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.dll
 E:\Projetos\FullStackDotNetAPIcomAngular\PROEVENTOS\BackEnd\src\ProEventos.API\ProEventos.API\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Abstractions.dll
@@ -14,6 +18,8 @@ E:\Projetos\FullStackDotNetAPIcomAngular\PROEVENTOS\BackEnd\src\ProEventos.API\P
 E:\Projetos\FullStackDotNetAPIcomAngular\PROEVENTOS\BackEnd\src\ProEventos.API\ProEventos.API\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Sqlite.dll
 E:\Projetos\FullStackDotNetAPIcomAngular\PROEVENTOS\BackEnd\src\ProEventos.API\ProEventos.API\bin\Debug\net6.0\Microsoft.Extensions.DependencyModel.dll
 E:\Projetos\FullStackDotNetAPIcomAngular\PROEVENTOS\BackEnd\src\ProEventos.API\ProEventos.API\bin\Debug\net6.0\Microsoft.OpenApi.dll
+E:\Projetos\FullStackDotNetAPIcomAngular\PROEVENTOS\BackEnd\src\ProEventos.API\ProEventos.API\bin\Debug\net6.0\Newtonsoft.Json.dll
+E:\Projetos\FullStackDotNetAPIcomAngular\PROEVENTOS\BackEnd\src\ProEventos.API\ProEventos.API\bin\Debug\net6.0\Newtonsoft.Json.Bson.dll
 E:\Projetos\FullStackDotNetAPIcomAngular\PROEVENTOS\BackEnd\src\ProEventos.API\ProEventos.API\bin\Debug\net6.0\SQLitePCLRaw.batteries_v2.dll
 E:\Projetos\FullStackDotNetAPIcomAngular\PROEVENTOS\BackEnd\src\ProEventos.API\ProEventos.API\bin\Debug\net6.0\SQLitePCLRaw.core.dll
 E:\Projetos\FullStackDotNetAPIcomAngular\PROEVENTOS\BackEnd\src\ProEventos.API\ProEventos.API\bin\Debug\net6.0\SQLitePCLRaw.provider.e_sqlite3.dll
@@ -57,7 +63,3 @@ E:\Projetos\FullStackDotNetAPIcomAngular\PROEVENTOS\BackEnd\src\ProEventos.API\P
 E:\Projetos\FullStackDotNetAPIcomAngular\PROEVENTOS\BackEnd\src\ProEventos.API\ProEventos.API\obj\Debug\net6.0\ProEventos.API.pdb
 E:\Projetos\FullStackDotNetAPIcomAngular\PROEVENTOS\BackEnd\src\ProEventos.API\ProEventos.API\obj\Debug\net6.0\ProEventos.API.genruntimeconfig.cache
 E:\Projetos\FullStackDotNetAPIcomAngular\PROEVENTOS\BackEnd\src\ProEventos.API\ProEventos.API\obj\Debug\net6.0\ref\ProEventos.API.dll
-E:\Projetos\FullStackDotNetAPIcomAngular\PROEVENTOS\BackEnd\src\ProEventos.API\ProEventos.API\bin\Debug\net6.0\Microsoft.AspNetCore.JsonPatch.dll
-E:\Projetos\FullStackDotNetAPIcomAngular\PROEVENTOS\BackEnd\src\ProEventos.API\ProEventos.API\bin\Debug\net6.0\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
-E:\Projetos\FullStackDotNetAPIcomAngular\PROEVENTOS\BackEnd\src\ProEventos.API\ProEventos.API\bin\Debug\net6.0\Newtonsoft.Json.dll
-E:\Projetos\FullStackDotNetAPIcomAngular\PROEVENTOS\BackEnd\src\ProEventos.API\ProEventos.API\bin\Debug\net6.0\Newtonsoft.Json.Bson.dll

@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using ProEventos.Application.Contratos;
+using ProEventos.Application.Dtos;
 using ProEventos.Domain;
 using ProEventos.Persistence.Contextos;
 
@@ -21,7 +22,7 @@ public class EventoController : ControllerBase
     {
         try
         {
-            Evento[] eventos = await _eventoService.GetAllEventosAsysnc(true);
+            EventoDto[] eventos = await _eventoService.GetAllEventosAsysnc(true);
             if(eventos == null) return NotFound("Nenhum evento encontrado");
 
             return Ok(eventos);
@@ -36,7 +37,7 @@ public class EventoController : ControllerBase
     {
         try
         {
-            Evento evento = await _eventoService.GetEventoByIdAsysnc(id, true);
+            EventoDto evento = await _eventoService.GetEventoByIdAsysnc(id, true);
             if (evento == null) return NotFound("Evento encontrado");
 
             return Ok(evento);
@@ -52,7 +53,7 @@ public class EventoController : ControllerBase
     {
         try
         {
-            Evento[] evento = await _eventoService.GetAllEventosByTemaAsysnc(tema, true);
+            EventoDto[] evento = await _eventoService.GetAllEventosByTemaAsysnc(tema, true);
             if (evento == null) return NotFound("Nenhum evento encontrado");
 
             return Ok(evento);
@@ -63,11 +64,11 @@ public class EventoController : ControllerBase
         }
     }
     [HttpPost]
-    public async Task<IActionResult> Post(Evento eventoModel)
+    public async Task<IActionResult> Post(EventoDto eventoModel)
     {
         try
         {
-            Evento evento = await _eventoService.AddEvento(eventoModel);
+            EventoDto evento = await _eventoService.AddEvento(eventoModel);
             if (evento == null) return BadRequest("Erro ao adicionar evento");
 
             return Ok(evento);
@@ -78,11 +79,11 @@ public class EventoController : ControllerBase
         }
     }
     [HttpPut("{id}")]
-    public async Task<IActionResult> Put(int id, Evento eventoModel)
+    public async Task<IActionResult> Put(int id, EventoDto eventoModel)
     {
         try
         {
-            Evento evento = await _eventoService.UpdateEvento(id, eventoModel);
+            EventoDto evento = await _eventoService.UpdateEvento(id, eventoModel);
             if (evento == null) return BadRequest("Erro ao editar evento");
 
             return Ok(evento);

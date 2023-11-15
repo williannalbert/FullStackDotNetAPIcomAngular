@@ -1,9 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "RaOGBneOFZ9ItwU4e840mMqRQunezqUq3nmE2IKztjZjEbrP3EF4wwkjDTIJk7MSP5dAamDDZeXKYsKu66RBrQ==",
+  "dgSpecHash": "CWSKU21BN3M0ZTjTdB9z4ZleMii/fmeSHRYNi8wLy5yCa2j08xYwN9sxPaIfx2b0VWljQHdquz129IilLUA+3A==",
   "success": true,
   "projectFilePath": "E:\\Projetos\\FullStackDotNetAPIcomAngular\\PROEVENTOS\\BackEnd\\src\\ProEventos.API\\ProEventos.API\\ProEventos.API.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\Willian\\.nuget\\packages\\automapper\\10.1.1\\automapper.10.1.1.nupkg.sha512",
+    "C:\\Users\\Willian\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\8.1.1\\automapper.extensions.microsoft.dependencyinjection.8.1.1.nupkg.sha512",
     "C:\\Users\\Willian\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\Willian\\.nuget\\packages\\microsoft.aspnetcore.jsonpatch\\5.0.3\\microsoft.aspnetcore.jsonpatch.5.0.3.nupkg.sha512",
     "C:\\Users\\Willian\\.nuget\\packages\\microsoft.aspnetcore.mvc.newtonsoftjson\\5.0.3\\microsoft.aspnetcore.mvc.newtonsoftjson.5.0.3.nupkg.sha512",
@@ -43,6 +45,7 @@
     "C:\\Users\\Willian\\.nuget\\packages\\system.collections.immutable\\6.0.0\\system.collections.immutable.6.0.0.nupkg.sha512",
     "C:\\Users\\Willian\\.nuget\\packages\\system.diagnostics.diagnosticsource\\6.0.0\\system.diagnostics.diagnosticsource.6.0.0.nupkg.sha512",
     "C:\\Users\\Willian\\.nuget\\packages\\system.memory\\4.5.4\\system.memory.4.5.4.nupkg.sha512",
+    "C:\\Users\\Willian\\.nuget\\packages\\system.reflection.emit\\4.7.0\\system.reflection.emit.4.7.0.nupkg.sha512",
     "C:\\Users\\Willian\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\6.0.0\\system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512",
     "C:\\Users\\Willian\\.nuget\\packages\\system.text.encodings.web\\6.0.0\\system.text.encodings.web.6.0.0.nupkg.sha512",
     "C:\\Users\\Willian\\.nuget\\packages\\system.text.json\\6.0.0\\system.text.json.6.0.0.nupkg.sha512"
