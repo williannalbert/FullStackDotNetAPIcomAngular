@@ -99,7 +99,7 @@ public class EventoController : ControllerBase
         try
         {
             if (await _eventoService.DeleteEvento(id))
-                return Ok("Exclusão realizada com sucesso");
+                return Ok( new { message = "Exclusão realizada com sucesso" });
             else
                 return BadRequest("Evento não excluído");
         }
