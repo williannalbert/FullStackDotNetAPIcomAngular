@@ -1,0 +1,18 @@
+1 - importar o datepicker no appmodule  
+*datepicker sendo usado no evento-detalhe e as configurações estão no proprio ts
+**carregar o defineLocale e ptBrLocale no app modules, com a função defineLocale embaixo, e referenciar no construtor da classe. usado em evento detalhe
+
+2 - carregamento de evento na página está sendo feito em evento-detalhe
+*importante olhar o contrutor
+**o + na frente do eventoIdParam é para converter para int
+***denntro de getEventoById é passado o paramento ...evento pois se trata de um spread. É para fazer uma copia do objeto pois o javascrpt aponta ao endereço de memória
+****dentro do html, no campo de datahora é feita a inclusão do value="{{evento.dataEvento | DateFormatPipe}}" pois o formControlName não converte essa informação sozinho
+*****inclusão de event.stopPropagation(); no ts e html de listar-evento para que nao haja bug de carregar ao tentar deletar
+
+3 - dentro de evento-detalhe foram criadas as condições para put e post
+*se atentar ao this.evento = {... this.form.value} 
+
+4 - o erro "O elemento implicitamente tem um tipo 'any' porque a expressão do tipo 'string' não pode ser usada para o tipo de índice 'EventoService'"
+foi corrigido incluindo o "noImplicitAny": false, no tsconfig
+
+5 - na service de eventos foi feita a inclusao do .pipe(take(1)), pois o subscribe permanece aberto. com o take, é possível determinar a quantidade de chamadas e encerrar após isso

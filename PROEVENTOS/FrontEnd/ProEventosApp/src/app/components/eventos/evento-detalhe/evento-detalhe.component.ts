@@ -17,6 +17,7 @@ export class EventoDetalheComponent implements OnInit {
 
   evento = {} as Evento;
   form: FormGroup;
+  modoSalvar = 'post';
 
   get f():any{
     return this.form.controls;
@@ -38,14 +39,18 @@ export class EventoDetalheComponent implements OnInit {
     private spinner: NgxSpinnerService,
     private toastr: ToastrService
   ){
-    this.localeService.use('pt-br')
+    //this.localeService.use('pt-br')
   }
 
    public carregarEvento():void{
     const eventoIdParam = this.router.snapshot.paramMap.get('id');
 
     if(eventoIdParam !== null){
+      
       this.spinner.show();
+      
+      this.modoSalvar = 'put';
+      
       this.eventoService.getEventoById(+eventoIdParam).subscribe(
         (evento: Evento) => {
           this.evento = {...evento},
@@ -91,4 +96,25 @@ export class EventoDetalheComponent implements OnInit {
   public cssValidador(campo: FormControl):any{
     return {'is-invalid':campo.errors && campo.touched}
   }
-}
+
+  public salvarAlteracao():void{
+    this.spinner.show();
+
+    if(this.form.valid){
+      this.evento = (this.modoSalvar === 'post') ?
+        {... this.form.value} //spread operator *funciona como um automapper*
+      : {id: this.evento.id, ... this.form.value}
+      };  
+
+      this.eventoService[this.modoSalvar](this.evento).subscribe(
+        () => this.toastr.success('Evento salvo com sucesso', 'Sucesso'),
+        (error: any) => {
+          console.log(error);
+          this.spinner.hide();
+          this.toastr.error('Ocorreu um erro ao salvar ebento', 'Erro')
+        },
+        () => this.spinner.hide()
+      );  
+    }
+  }
+

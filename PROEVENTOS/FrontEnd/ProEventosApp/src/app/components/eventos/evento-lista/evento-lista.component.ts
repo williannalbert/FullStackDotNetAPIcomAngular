@@ -87,17 +87,14 @@ export class EventoListaComponent implements OnInit {
       (result: any) => {
         if(result.message === 'Exclusão realizada com sucesso'){
           this.toastr.success('Exclusão realizada com sucesso', 'Sucesso');
-          this.spinner.hide();
           this.carregarEventos();
         }
       },
       (error: any) => {
         console.log(error)
         this.toastr.error(`Erro ao deletar evento de código ${this.eventoId}`, 'Erro');
-        this.spinner.hide();
-      },
-      () => this.spinner.hide(),
-    );
+      }
+    ).add(() => this.spinner.hide());
 
     
   }
