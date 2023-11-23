@@ -1,6 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import { FormArray, FormBuilder, FormControl, FormGroup, Validator, Validators } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { 
+  AbstractControl, 
+  FormArray, 
+  FormBuilder, 
+  FormControl, 
+  FormGroup, 
+  Validators 
+} from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
 
 import { BsLocaleService } from 'ngx-bootstrap/datepicker';
 import { NgxSpinnerService } from 'ngx-spinner';
@@ -9,6 +16,7 @@ import { ToastrService } from 'ngx-toastr';
 import { Evento } from '@app/models/Evento';
 import { EventoService } from '@app/services/evento.service';
 import { Lote } from '@app/models/Lote';
+import { LoteService } from '@app/services/lote.service';
 @Component({
   selector: 'app-evento-detalhe',
   templateUrl: './evento-detalhe.component.html',
@@ -16,12 +24,17 @@ import { Lote } from '@app/models/Lote';
 })
 export class EventoDetalheComponent implements OnInit {
 
+  eventoId: number;
   evento = {} as Evento;
   form: FormGroup;
   modoSalvar = 'post';
 
   get f():any{
     return this.form.controls;
+  }
+
+  get modoEditar():boolean{
+    return this.modoSalvar === 'put';
   }
 
   lotes():FormArray{
@@ -40,24 +53,27 @@ export class EventoDetalheComponent implements OnInit {
   }
   constructor(private fb: FormBuilder, 
     private localeService: BsLocaleService, 
-    private router: ActivatedRoute,
+    private activatedRouter: ActivatedRoute,
     private eventoService: EventoService,
+    private loteService: LoteService,
     private spinner: NgxSpinnerService,
-    private toastr: ToastrService
+    private toastr: ToastrService,
+    private router: Router
   ){
     //this.localeService.use('pt-br')
   }
 
    public carregarEvento():void{
-    const eventoIdParam = this.router.snapshot.paramMap.get('id');
+    this.eventoId = +this.activatedRouter.snapshot.paramMap.get('id');
 
-    if(eventoIdParam !== null){
+    if(this.eventoId !== null || this.eventoId === 0){
       
       this.spinner.show();
       
       this.modoSalvar = 'put';
       
-      this.eventoService.getEventoById(+eventoIdParam).subscribe(
+      //this.eventoService.getEventoById(+this.eventoId).subscribe(
+      this.eventoService.getEventoById(this.eventoId).subscribe(
         (evento: Evento) => {
           this.evento = {...evento},
           this.form.patchValue(this.evento)
@@ -79,7 +95,7 @@ export class EventoDetalheComponent implements OnInit {
 
   public validation(): void{
     this.form = this.fb.group({
-      tema: [ 
+      tema: [ '',
         [Validators.required, Validators.minLength(4), Validators.maxLength(50)]
       ],
       local: ['', Validators.required],
@@ -117,11 +133,11 @@ export class EventoDetalheComponent implements OnInit {
     this.form.reset();
   }
 
-  public cssValidador(campo: FormControl):any{
+  public cssValidador(campo: FormControl | AbstractControl):any{
     return {'is-invalid':campo.errors && campo.touched}
   }
 
-  public salvarAlteracao():void{
+  public salvarEvento():void{
     this.spinner.show();
 
     if(this.form.valid){
@@ -131,14 +147,34 @@ export class EventoDetalheComponent implements OnInit {
       };  
 
       this.eventoService[this.modoSalvar](this.evento).subscribe(
-        () => this.toastr.success('Evento salvo com sucesso', 'Sucesso'),
+        (eventoRetorno:Evento) => {
+          this.toastr.success('Evento salvo com sucesso', 'Sucesso');
+          this.router.navigate([`eventos/detalhe/${eventoRetorno.id}`])
+        },
         (error: any) => {
           console.log(error);
           this.spinner.hide();
-          this.toastr.error('Ocorreu um erro ao salvar ebento', 'Erro')
+          this.toastr.error('Ocorreu um erro ao salvar ebento', 'Erro');
         },
         () => this.spinner.hide()
       );  
+    }
+
+    public salvarLotes() : void{
+      this.spinner.show();
+      if(this.form.controls.lotes.valid){
+        this.loteService.saveLote(this.eventoId, this.form.value.lotes)
+        .subscribe(
+          () => {
+            this.toastr.success('Lotes salvos com sucesso', 'Sucesso');
+            //this.lotes.reset()
+          },
+          (error:any) => {
+            this.toastr.error('Erro ao salvar lotes', 'Erro');
+            console.log(error)
+          }
+        ).add(() => this.spinner.hide());
+      }
     }
   }
 
