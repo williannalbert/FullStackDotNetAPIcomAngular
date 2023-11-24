@@ -240,5 +240,9 @@ export class EventoDetalheComponent implements OnInit {
     public mudarValorData(value: Date, indice: number, campo: string): void{
       this.lotes().value[indice][campo] = value;
     }
+
+    public retornaTituloLote(valor: string) : string{
+      return valor === null || valor ===  '' ? 'Nome do Lote' : valor;
+    }
   }
 

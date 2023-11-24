@@ -1,0 +1,30 @@
+Passos backend
+1 - criar backend de lote
+(lote controller, lote service e lote persist)
+
+2 - adicionar a injeção de dependencia no startup
+services.AddScoped<ILoteService, LoteService>();
+services.AddScoped<ILotePersist, LotePersist>();
+
+Passos front
+
+3 - gerar service de lote
+*remover root e incluir na appmodules
+
+4 - criação do componente de lote dentro de evento-detalhe
+* se atentar na linha this.criarLote({id: 0} as Lote)
+**dento do html de lotes em evento-detalhe é muito importante olhar o formGroup e principalmente o formGroupName que é o index do for
+
+5 - devido ao erro de AbstractControl ao utilizar o cssValidator no form de lote é necessário incluir a seguinde condição em tdconfig
+"strictNullChecks": false
+
+6 - feito o delete de lote
+
+7 - IMPORTANTE - CORREÇÃO  DO BUG EM DATAS EM LOTES
+*o formcontrolname É RETIRADO dos campos de data
+
+8 - instalar ngx-currency para transformar o . para , em campo de dinheiro
+ 
+npm install ngx-currency@2.5.2 --save
+*importar na appmodules
+**usar currencyMask no campo desejado
