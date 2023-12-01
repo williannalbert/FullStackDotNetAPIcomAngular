@@ -11,10 +11,12 @@ namespace ProEventos.API.Controllers;
 public class EventoController : ControllerBase
 {
     private readonly IEventoService _eventoService;
+    private readonly IWebHostEnvironment _hostEnvironment;
 
-    public EventoController(IEventoService eventoService)
+    public EventoController(IEventoService eventoService, IWebHostEnvironment hostEnvironment)
     {
         _eventoService = eventoService;
+        _hostEnvironment = hostEnvironment;
     }
 
     [HttpGet]
@@ -98,14 +100,72 @@ public class EventoController : ControllerBase
     {
         try
         {
-            if (await _eventoService.DeleteEvento(id))
-                return Ok( new { message = "Exclusão realizada com sucesso" });
-            else
-                return BadRequest("Evento não excluído");
+            EventoDto evento = await _eventoService.GetEventoByIdAsysnc(id, true);
+            if (evento == null)
+                return NoContent();
+
+            if(await _eventoService.DeleteEvento(id))
+            {
+                DeletarImagem(evento.ImgUrl);
+                return Ok(new { message = "Exclusão realizada com sucesso" });
+            }
+             else
+                throw new Exception("Ocorreu um erro ao excluir Evento");
+
         }
         catch (Exception ex)
         {
             return this.StatusCode(StatusCodes.Status500InternalServerError, "Erro ao excluir evento. Erro: " + ex.Message);
         }
+    }
+    [HttpPost("upload-imagem/{eventoId}")]
+    public async Task<IActionResult> UploadImagem(int eventoId)
+    {
+        try
+        {
+            EventoDto evento = await _eventoService.GetEventoByIdAsysnc(eventoId, true);
+            if (evento == null) return NoContent();
+
+            IFormFile file = Request.Form.Files[0];
+            if(file.Length > 0)
+            {
+                DeletarImagem(evento.ImgUrl);
+                evento.ImgUrl = await SalvarImagem(file);
+            }
+
+            EventoDto EventoRetorno = await _eventoService.UpdateEvento(eventoId, evento);
+
+            return Ok(EventoRetorno);
+        }
+        catch (Exception ex)
+        {
+            return this.StatusCode(StatusCodes.Status500InternalServerError, "Erro ao adicionar evento. Erro: " + ex.Message);
+        }
+    }
+    [NonAction]
+    public void DeletarImagem(string nomeImagem)
+    {
+        var caminhoImagem = Path.Combine(_hostEnvironment.ContentRootPath, @"Recursos/Imagens", nomeImagem);
+        if (System.IO.File.Exists(caminhoImagem))
+            System.IO.File.Delete(caminhoImagem);
+    }
+    [NonAction]
+    public async Task<string> SalvarImagem(IFormFile arquivoImagem)
+    {
+        string nomeImagem = new String(
+            Path.GetFileNameWithoutExtension(arquivoImagem.FileName)
+            .Take(10)
+            .ToArray()
+            ).Replace(' ', '-');
+
+        nomeImagem = $"{nomeImagem}{DateTime.UtcNow.ToString("yymmssfff")}{Path.GetExtension(arquivoImagem.FileName)}";
+
+        string caminhoImagem = Path.Combine(_hostEnvironment.ContentRootPath, @"Recursos/Imagens", nomeImagem);
+
+        using (var fileStream = new FileStream(caminhoImagem, FileMode.Create))
+        {
+            await arquivoImagem.CopyToAsync(fileStream);
+        }
+        return nomeImagem;
     }
 }

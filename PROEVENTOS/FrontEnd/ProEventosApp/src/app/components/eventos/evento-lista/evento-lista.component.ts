@@ -7,6 +7,7 @@ import { ToastrService } from 'ngx-toastr';
 
 import { Evento } from '@app/models/Evento';
 import { EventoService } from '@app/services/evento.service';
+import { environment } from '@environment/environment';
 
 @Component({
   selector: 'app-evento-lista',
@@ -105,6 +106,12 @@ export class EventoListaComponent implements OnInit {
 
   detalheEvento(id:number):void{
     this.router.navigate([`eventos/detalhe/${id}`]);
+  }
+
+  public retornaImagem(imagemURL:string):string{
+    return (imagemURL !== '')
+      ? `${environment.apiURL}recursos/imagens/${imagemURL}`
+      : 'assets/img/notFound.png';
   }
 
 }

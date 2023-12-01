@@ -18,6 +18,8 @@ import { EventoService } from '@app/services/evento.service';
 import { Lote } from '@app/models/Lote';
 import { LoteService } from '@app/services/lote.service';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
+import { Observable } from 'rxjs';
+import { environment } from '@environment/environment';
 @Component({
   selector: 'app-evento-detalhe',
   templateUrl: './evento-detalhe.component.html',
@@ -35,6 +37,8 @@ export class EventoDetalheComponent implements OnInit {
     nome: '',
     indice: 0
   }
+  imagemURL = '/assets/cloud.jpg';
+  file: File;
 
   get f():any{
     return this.form.controls;
@@ -95,6 +99,9 @@ export class EventoDetalheComponent implements OnInit {
         (evento: Evento) => {
           this.evento = {...evento},
           this.form.patchValue(this.evento)
+          if(this.evento.imgUrl !== ''){
+            this.imagemURL = environment.apiURL+'recursos/imagens/'+this.evento.imgUrl;
+          }
           this.evento.lotes.forEach(lote => {
             this.lotes().push(this.criarLote(lote));
           })
@@ -123,7 +130,7 @@ export class EventoDetalheComponent implements OnInit {
       qtdPessoas: ['', 
         [Validators.required, Validators.max(120000)]
       ],
-      imgUrl: ['', Validators.required] ,
+      imgUrl: [''] ,
       telefone: ['', Validators.required],
       email: ['', 
         [Validators.required, Validators.email]
@@ -243,6 +250,32 @@ export class EventoDetalheComponent implements OnInit {
 
     public retornaTituloLote(valor: string) : string{
       return valor === null || valor ===  '' ? 'Nome do Lote' : valor;
+    }
+
+    onFileChange(ev: any): void{
+      const reader = new FileReader();
+
+      reader.onload = (event: any) => this.imagemURL = event.target.result;
+
+      this.file = ev.target.files;
+      reader.readAsDataURL(this.file[0])
+
+      this.uploadImagem();
+    }
+
+    uploadImagem(): void{
+      this.spinner.show();
+      this.eventoService.postUpload(this.eventoId, this.file).subscribe(
+        () => {
+          //this.router.navigate([`eventos/detalhe/${this.eventoId}`]);
+          this.carregarEvento();
+          this.toastr.success('Imagem atualizada com sucesso', 'Sucesso')
+        },
+        (error: any) => {
+          this.toastr.error('Erro ao atualizar imagem', 'Erroo');
+          console.log(error);
+        }
+      ).add(() => this.spinner.hide());
     }
   }
 

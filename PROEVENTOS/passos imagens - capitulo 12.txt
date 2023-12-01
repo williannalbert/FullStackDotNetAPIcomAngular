@@ -1,0 +1,14 @@
+1 - configurar no startup do backend a possibilidade ter um diretorio para armazenar imagens
+- criar repositório Recursos/imagens
+-incluir UseStaticFiles no Startup
+
+2 - criar metodo UploadImagem em eventocontroller
+
+3 - adicionar IWebHostEnvironment ao construtor de eventocontroller
+----------------------------------------------------------------------
+4 - no front foi colado o html de imagem
+IMPORTANTE
+há um botão do tipo file que está com #file, e isso permite que a imagem seja clicada e o evento file.click seja possível
+esse botão está com display:none
+
+5 - dentro de enviroments - enviroment é para criar uma variavel com a rota da api usada

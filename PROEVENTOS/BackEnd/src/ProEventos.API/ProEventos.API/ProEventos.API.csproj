@@ -25,4 +25,8 @@
     <ProjectReference Include="..\..\ProEventos.Application\ProEventos.Application.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Recursos\Imagens\" />
+  </ItemGroup>
+
 </Project>
