@@ -1,0 +1,16 @@
+1 - instalar o identity na proeventos.domain
+Microsoft.AspNetCore.Identity.EntityFrameworkCore 5.0.11
+
+2 - criar as pastas Identity e Enum em Domain, e as classes dentro dessas pastas
+
+3 - referenciar usuario nas classes evento
+
+4 - na classe User foi feita a referência de IdentityUser<int>
+e em Role foi feita a referência de IdentityRole<int>
+e em UserRole foi feita a referência de IdentityUserRole<int>
+*o int referencia ao primary key como int, o padrão do entity é GUID primary key
+
+5 - incluir a referência do identity dentro do ProEventos.Persistence
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="5.0.11" />
+
+6 - dar um cd em ProEventos.Persistence, peleo terminal 
