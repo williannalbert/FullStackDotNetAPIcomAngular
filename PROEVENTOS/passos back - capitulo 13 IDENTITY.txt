@@ -13,4 +13,22 @@ e em UserRole foi feita a referência de IdentityUserRole<int>
 5 - incluir a referência do identity dentro do ProEventos.Persistence
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="5.0.11" />
 
-6 - dar um cd em ProEventos.Persistence, peleo terminal 
+6 - ALERTA DE BUG
+Necessário deixar as referências de entity e identity na mesma versão, em Persistence e Domain
+
+7 - trocar o ProEventosContext para IdentityDbContext, e tirar o DBContext
+**Se não forem passados parametros ao identityDbContext, as tabelas serão criadas com base em IdentityUser, IdentityRole
+**Com os parametros passados, são criadas com base em diversos informações que ficam como padrão. Coladas na context "EXCETO IdentityUserRole que ficará UserRole"
+IdentityDbContext<TUser, TRole, TKey, IdentityUserClaim<TKey>, UserRole, IdentityUserLogin<TKey>, IdentityRoleClaim<TKey>, IdentityUserToken<TKey>>
+
+8 - incluir o código abaixo em ProEventosContext -> OnModelCreating()
+base.OnModelCreating(modelBuilder);
+
+9 - apagar o banco de dados anterior e gerar uma nova migration. Rodar comando dentro de proeventos.api
+dotnet ef migrations add Adicionando-Identity -p ..\Proeventos.Persistence -s ProEventos.API
+dotnet ef database update -s ProEventos.API
+
+10 - Criar interface, persist e controller de usuario
+**SE ATENTAR AO USERPERSIST QUE ESTÁ IMPLEMENTANDO GERAL E INTERFACE
+
+11 - INSTALAR O Microsoft.AspNetCore.Identity EM proeventos.application
