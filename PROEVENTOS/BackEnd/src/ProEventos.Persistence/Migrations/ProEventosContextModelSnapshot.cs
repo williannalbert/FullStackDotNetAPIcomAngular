@@ -184,11 +184,9 @@ namespace ProEventos.Persistence.Migrations
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Descricao")
-                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Email")
-                        .IsRequired()
                         .HasMaxLength(256)
                         .HasColumnType("TEXT");
 
@@ -199,7 +197,6 @@ namespace ProEventos.Persistence.Migrations
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("ImgURL")
-                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<bool>("LockoutEnabled")
@@ -233,7 +230,6 @@ namespace ProEventos.Persistence.Migrations
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Telefone")
-                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<int>("Titulo")

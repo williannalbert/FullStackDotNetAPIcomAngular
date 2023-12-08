@@ -63,6 +63,7 @@ namespace ProEventos.Application
             }
             catch (Exception ex)
             {
+                var t = ex.InnerException.Message;
                 throw new Exception($"Erro ao criar conta. Erro: {ex.Message}");
             }
         }

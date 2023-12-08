@@ -8,6 +8,7 @@ E:\Projetos\FullStackDotNetAPIcomAngular\PROEVENTOS\BackEnd\src\ProEventos.API\P
 E:\Projetos\FullStackDotNetAPIcomAngular\PROEVENTOS\BackEnd\src\ProEventos.API\ProEventos.API\bin\Debug\net6.0\AutoMapper.dll
 E:\Projetos\FullStackDotNetAPIcomAngular\PROEVENTOS\BackEnd\src\ProEventos.API\ProEventos.API\bin\Debug\net6.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
 E:\Projetos\FullStackDotNetAPIcomAngular\PROEVENTOS\BackEnd\src\ProEventos.API\ProEventos.API\bin\Debug\net6.0\Humanizer.dll
+E:\Projetos\FullStackDotNetAPIcomAngular\PROEVENTOS\BackEnd\src\ProEventos.API\ProEventos.API\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
 E:\Projetos\FullStackDotNetAPIcomAngular\PROEVENTOS\BackEnd\src\ProEventos.API\ProEventos.API\bin\Debug\net6.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
 E:\Projetos\FullStackDotNetAPIcomAngular\PROEVENTOS\BackEnd\src\ProEventos.API\ProEventos.API\bin\Debug\net6.0\Microsoft.AspNetCore.JsonPatch.dll
 E:\Projetos\FullStackDotNetAPIcomAngular\PROEVENTOS\BackEnd\src\ProEventos.API\ProEventos.API\bin\Debug\net6.0\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
@@ -18,6 +19,11 @@ E:\Projetos\FullStackDotNetAPIcomAngular\PROEVENTOS\BackEnd\src\ProEventos.API\P
 E:\Projetos\FullStackDotNetAPIcomAngular\PROEVENTOS\BackEnd\src\ProEventos.API\ProEventos.API\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Relational.dll
 E:\Projetos\FullStackDotNetAPIcomAngular\PROEVENTOS\BackEnd\src\ProEventos.API\ProEventos.API\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Sqlite.dll
 E:\Projetos\FullStackDotNetAPIcomAngular\PROEVENTOS\BackEnd\src\ProEventos.API\ProEventos.API\bin\Debug\net6.0\Microsoft.Extensions.DependencyModel.dll
+E:\Projetos\FullStackDotNetAPIcomAngular\PROEVENTOS\BackEnd\src\ProEventos.API\ProEventos.API\bin\Debug\net6.0\Microsoft.IdentityModel.JsonWebTokens.dll
+E:\Projetos\FullStackDotNetAPIcomAngular\PROEVENTOS\BackEnd\src\ProEventos.API\ProEventos.API\bin\Debug\net6.0\Microsoft.IdentityModel.Logging.dll
+E:\Projetos\FullStackDotNetAPIcomAngular\PROEVENTOS\BackEnd\src\ProEventos.API\ProEventos.API\bin\Debug\net6.0\Microsoft.IdentityModel.Protocols.dll
+E:\Projetos\FullStackDotNetAPIcomAngular\PROEVENTOS\BackEnd\src\ProEventos.API\ProEventos.API\bin\Debug\net6.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+E:\Projetos\FullStackDotNetAPIcomAngular\PROEVENTOS\BackEnd\src\ProEventos.API\ProEventos.API\bin\Debug\net6.0\Microsoft.IdentityModel.Tokens.dll
 E:\Projetos\FullStackDotNetAPIcomAngular\PROEVENTOS\BackEnd\src\ProEventos.API\ProEventos.API\bin\Debug\net6.0\Microsoft.OpenApi.dll
 E:\Projetos\FullStackDotNetAPIcomAngular\PROEVENTOS\BackEnd\src\ProEventos.API\ProEventos.API\bin\Debug\net6.0\Newtonsoft.Json.dll
 E:\Projetos\FullStackDotNetAPIcomAngular\PROEVENTOS\BackEnd\src\ProEventos.API\ProEventos.API\bin\Debug\net6.0\Newtonsoft.Json.Bson.dll
@@ -27,6 +33,8 @@ E:\Projetos\FullStackDotNetAPIcomAngular\PROEVENTOS\BackEnd\src\ProEventos.API\P
 E:\Projetos\FullStackDotNetAPIcomAngular\PROEVENTOS\BackEnd\src\ProEventos.API\ProEventos.API\bin\Debug\net6.0\Swashbuckle.AspNetCore.Swagger.dll
 E:\Projetos\FullStackDotNetAPIcomAngular\PROEVENTOS\BackEnd\src\ProEventos.API\ProEventos.API\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerGen.dll
 E:\Projetos\FullStackDotNetAPIcomAngular\PROEVENTOS\BackEnd\src\ProEventos.API\ProEventos.API\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+E:\Projetos\FullStackDotNetAPIcomAngular\PROEVENTOS\BackEnd\src\ProEventos.API\ProEventos.API\bin\Debug\net6.0\System.IdentityModel.Tokens.Jwt.dll
+E:\Projetos\FullStackDotNetAPIcomAngular\PROEVENTOS\BackEnd\src\ProEventos.API\ProEventos.API\bin\Debug\net6.0\System.Security.Permissions.dll
 E:\Projetos\FullStackDotNetAPIcomAngular\PROEVENTOS\BackEnd\src\ProEventos.API\ProEventos.API\bin\Debug\net6.0\runtimes\alpine-x64\native\libe_sqlite3.so
 E:\Projetos\FullStackDotNetAPIcomAngular\PROEVENTOS\BackEnd\src\ProEventos.API\ProEventos.API\bin\Debug\net6.0\runtimes\linux-arm\native\libe_sqlite3.so
 E:\Projetos\FullStackDotNetAPIcomAngular\PROEVENTOS\BackEnd\src\ProEventos.API\ProEventos.API\bin\Debug\net6.0\runtimes\linux-arm64\native\libe_sqlite3.so

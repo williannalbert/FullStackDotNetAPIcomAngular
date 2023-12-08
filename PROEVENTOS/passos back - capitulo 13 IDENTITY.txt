@@ -32,3 +32,29 @@ dotnet ef database update -s ProEventos.API
 **SE ATENTAR AO USERPERSIST QUE ESTÁ IMPLEMENTANDO GERAL E INTERFACE
 
 11 - INSTALAR O Microsoft.AspNetCore.Identity EM proeventos.application
+
+12 - criar a interface e service do token
+
+13 - instalar os seguintes pacotes que estão sendo usados no service de token
+ System.IdentityModel.Tokens.Jwt - v 6.14
+ Microsoft.IdentityModel.Tokens - v 6.14
+ 
+14 - adicionar os mappers de interface no startup do projeto
+IUserService
+IUserPersist
+
+15 - adicionar o AddJsonOptions para o enumConverter e o AddNewtonsoftJson já estava configurado, para evitar chamadas em looping
+enum adicionado devido as classes de enum. Caso não seja implementado, essas classes retornarão o index ao invés do valor
+
+16 - adicionar o AddIdentityCore ao startup
+*MUITO IMPORTANTE INCLUIR O AddDefaultTokenProviders
+Obrigatório pois em UserService o GeneratePasswordResetTokenAsync é gerado por essa classe
+
+17 - adicionar o AddAuthentication ao startup
+*instalar  
+Microsoft.AspNetCore.Authentication.JwtBearer no ProEventos.API - v 5.0.2
+Microsoft.AspNetCore.Identity.EntityFrameworkCore - v 5.0.2
+
+**é o mesmo que está no token service pois é a chave de criptografia e descriptografia
+
+18 - criar UserController
