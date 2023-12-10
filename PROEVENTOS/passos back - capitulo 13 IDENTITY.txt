@@ -58,3 +58,9 @@ Microsoft.AspNetCore.Identity.EntityFrameworkCore - v 5.0.2
 **é o mesmo que está no token service pois é a chave de criptografia e descriptografia
 
 18 - criar UserController
+dotnet ef migrations add ajustando-null-de-usuario -p ..\Proeventos.Persistence -s ProEventos.API
+
+19 - criar pasta Extensions -> ClaimPrincipalExtencions dentro de ProEventos.API
+*a classe deve herdar de Claim (this ClaimsPrincipal user)
+
+20 - Alterar todas as classes de CRUD para receber o userid e incluir authorize na controler

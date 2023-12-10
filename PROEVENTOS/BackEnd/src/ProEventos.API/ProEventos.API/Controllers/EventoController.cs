@@ -1,22 +1,28 @@
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using ProEventos.API.Extensions;
 using ProEventos.Application.Contratos;
 using ProEventos.Application.Dtos;
-using ProEventos.Domain;
-using ProEventos.Persistence.Contextos;
+
 
 namespace ProEventos.API.Controllers;
 
 [ApiController]
+[Authorize]
 [Route("api/[controller]")]
 public class EventoController : ControllerBase
 {
     private readonly IEventoService _eventoService;
     private readonly IWebHostEnvironment _hostEnvironment;
+    private readonly IUserService _userService;
 
-    public EventoController(IEventoService eventoService, IWebHostEnvironment hostEnvironment)
+    public EventoController(IEventoService eventoService, 
+        IWebHostEnvironment hostEnvironment, 
+        IUserService userService)
     {
         _eventoService = eventoService;
         _hostEnvironment = hostEnvironment;
+        _userService = userService;
     }
 
     [HttpGet]
@@ -24,7 +30,7 @@ public class EventoController : ControllerBase
     {
         try
         {
-            EventoDto[] eventos = await _eventoService.GetAllEventosAsysnc(true);
+            EventoDto[] eventos = await _eventoService.GetAllEventosAsysnc(User.GetUserId(), true);
             if(eventos == null) return NotFound("Nenhum evento encontrado");
 
             return Ok(eventos);
@@ -39,7 +45,7 @@ public class EventoController : ControllerBase
     {
         try
         {
-            EventoDto evento = await _eventoService.GetEventoByIdAsysnc(id, true);
+            EventoDto evento = await _eventoService.GetEventoByIdAsysnc(User.GetUserId(), id, true);
             if (evento == null) return NotFound("Evento encontrado");
 
             return Ok(evento);
@@ -55,7 +61,7 @@ public class EventoController : ControllerBase
     {
         try
         {
-            EventoDto[] evento = await _eventoService.GetAllEventosByTemaAsysnc(tema, true);
+            EventoDto[] evento = await _eventoService.GetAllEventosByTemaAsysnc(User.GetUserId(), tema, true);
             if (evento == null) return NotFound("Nenhum evento encontrado");
 
             return Ok(evento);
@@ -70,7 +76,7 @@ public class EventoController : ControllerBase
     {
         try
         {
-            EventoDto evento = await _eventoService.AddEvento(eventoModel);
+            EventoDto evento = await _eventoService.AddEvento(User.GetUserId(), eventoModel);
             if (evento == null) return BadRequest("Erro ao adicionar evento");
 
             return Ok(evento);
@@ -85,7 +91,7 @@ public class EventoController : ControllerBase
     {
         try
         {
-            EventoDto evento = await _eventoService.UpdateEvento(id, eventoModel);
+            EventoDto evento = await _eventoService.UpdateEvento(User.GetUserId(), id, eventoModel);
             if (evento == null) return BadRequest("Erro ao editar evento");
 
             return Ok(evento);
@@ -100,11 +106,11 @@ public class EventoController : ControllerBase
     {
         try
         {
-            EventoDto evento = await _eventoService.GetEventoByIdAsysnc(id, true);
+            EventoDto evento = await _eventoService.GetEventoByIdAsysnc(User.GetUserId(), id, true);
             if (evento == null)
                 return NoContent();
 
-            if(await _eventoService.DeleteEvento(id))
+            if(await _eventoService.DeleteEvento(User.GetUserId(), id))
             {
                 DeletarImagem(evento.ImgUrl);
                 return Ok(new { message = "Exclusão realizada com sucesso" });
@@ -123,7 +129,7 @@ public class EventoController : ControllerBase
     {
         try
         {
-            EventoDto evento = await _eventoService.GetEventoByIdAsysnc(eventoId, true);
+            EventoDto evento = await _eventoService.GetEventoByIdAsysnc(User.GetUserId(), eventoId, true);
             if (evento == null) return NoContent();
 
             IFormFile file = Request.Form.Files[0];
@@ -133,7 +139,7 @@ public class EventoController : ControllerBase
                 evento.ImgUrl = await SalvarImagem(file);
             }
 
-            EventoDto EventoRetorno = await _eventoService.UpdateEvento(eventoId, evento);
+            EventoDto EventoRetorno = await _eventoService.UpdateEvento(User.GetUserId(), eventoId, evento);
 
             return Ok(EventoRetorno);
         }
