@@ -64,3 +64,5 @@ dotnet ef migrations add ajustando-null-de-usuario -p ..\Proeventos.Persistence 
 *a classe deve herdar de Claim (this ClaimsPrincipal user)
 
 20 - Alterar todas as classes de CRUD para receber o userid e incluir authorize na controler
+
+21 - no startup -> AddSwaggerGen adicionar o AddSecurityDefinition

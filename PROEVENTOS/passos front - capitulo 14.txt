@@ -1,0 +1,11 @@
+1 - criar service account
+*botão direito -> generate service
+
+2 - criar model de usuario (User)
+*botao direito -> generate  class
+
+3 - criado um observable dentro de accountservice (currentUserSource)
+além disso, foi feita a criação de currentUser$, que aponta para o mesmo endereço de memória
+esse observable é responsável por monitorar as informações do usuário, como o token
+informações são chamadas em setCurrentUser()
+
