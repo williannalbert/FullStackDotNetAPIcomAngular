@@ -9,3 +9,26 @@ além disso, foi feita a criação de currentUser$, que aponta para o mesmo ende
 esse observable é responsável por monitorar as informações do usuário, como o token
 informações são chamadas em setCurrentUser()
 
+4 - feito o ajuste no backend -> controller de usuario para retornar o userupdatedto, pois ele possui o token
+
+5 - criar interceptor no front
+*dentro do caminho de proeventos escrever o seguinte comando
+ng g interceptor interceptors/jwt
+
+6 adicionar o interceptor criado ao appmodules -> providers
+
+7 - feitos os ajustes no component nav para usuario logado ou não
+*o ng-container é responsável por não gerar o html dentro dele caso seja negativo
+
+8 - criar guardião de rotas
+*dentro do caminho de proeventos escrever o seguinte comando
+ng g guard guard/auth
+**selecionar o CanActivate
+
+9 - dentro dee app-routing criar o "middleware" das rotas e incluir as rotas que precisam de autenticação
+
+10 - gerar component HomeComponent
+
+11 - MUUUUUUUUIIIIIITOOO IMPORTANTE
+por conta do service ser chamado sempre que há atualização na página ou chamada via url, é FUNDAMENTAL incluir o AccountService no app.component
+isso irá atualizar o service sempre que chamado

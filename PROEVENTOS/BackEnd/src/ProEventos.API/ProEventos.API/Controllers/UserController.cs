@@ -48,7 +48,12 @@ namespace ProEventos.API.Controllers
 
                 var user = _userService.CreateAccountAsync(userDto);
                 if(user != null)
-                    return Ok(user.Result);
+                    return Ok(new
+                    {
+                        userName = user.Result.UserName,
+                        primeiroNome = user.Result.PrimeiroNome,
+                        token = _tokenService.CreateToken(user.Result).Result
+                    });
 
                 return BadRequest("Usuário não cadastrado. Tente novamente mais tarde");
             }
@@ -90,6 +95,10 @@ namespace ProEventos.API.Controllers
         {
             try
             {
+                if(userUpdateDto.UserName != User.GetUserName())
+                {
+                    return Unauthorized("Usuário inválido");
+                }
                 //retornando usuario baseado no token
                 var user = await _userService.GetUserByUserNameAsync(User.GetUserName());
                 if (user == null)
@@ -99,7 +108,11 @@ namespace ProEventos.API.Controllers
                 if (userReturn == null)
                     return NoContent();
 
-                return Ok(userReturn.Result);
+                return Ok(new {
+                    username = userReturn.Result.UserName,
+                    primeiroNome = userReturn.Result.PrimeiroNome,
+                    token = _tokenService.CreateToken(userReturn.Result).Result
+                });
             }
             catch (Exception ex)
             {
