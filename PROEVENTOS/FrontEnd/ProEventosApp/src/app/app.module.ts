@@ -90,6 +90,7 @@ defineLocale('pt-br', ptBrLocale);
     {provide:HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true}
   ],
   bootstrap: [AppComponent],
-  schemas: [CUSTOM_ELEMENTS_SCHEMA],
+  
 })
 export class AppModule { }
+//schemas: [CUSTOM_ELEMENTS_SCHEMA],

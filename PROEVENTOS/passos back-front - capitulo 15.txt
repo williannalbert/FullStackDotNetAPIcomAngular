@@ -1,0 +1,7 @@
+1 - dentro de ProEventos -> Persistence criar o diretorio de models e incluir models de controle de paginação
+
+2 - Em pageList -> herança de T ao iniciar e no constutor, e significa que é uma lista genérica
+
+3 - inclusão da paginação em ProEventos.Persist
+
+4 - Editar a interface de eventos e sus implementações para incluir a paginação

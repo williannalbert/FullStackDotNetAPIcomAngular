@@ -4,6 +4,7 @@ using ProEventos.Application.Contratos;
 using ProEventos.Application.Dtos;
 using ProEventos.Domain;
 using ProEventos.Persistence.Contratos;
+using ProEventos.Persistence.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -93,15 +94,15 @@ namespace ProEventos.Application
             }
         }
 
-        public async Task<EventoDto[]> GetAllEventosAsysnc(int userId, bool includePalestrantes = false)
+        public async Task<PageList<EventoDto>> GetAllEventosAsysnc(int userId, PageParams pageParams, bool includePalestrantes = false)
         {
             try
             {
-                Evento[] eventos = await _eventoPersist.GetAllEventosAsysnc(userId, includePalestrantes);
+                var eventos = await _eventoPersist.GetAllEventosAsysnc(userId, pageParams, includePalestrantes);
                 if (eventos == null)
                     return null;
 
-                var resultado = _mapper.Map<EventoDto[]>(eventos);
+                var resultado = _mapper.Map<PageList<EventoDto>>(eventos);
 
                 return resultado;
             }
@@ -111,7 +112,7 @@ namespace ProEventos.Application
             }
         }
 
-        public async Task<EventoDto[]> GetAllEventosByTemaAsysnc(int userId, string tema, bool includePalestrantes = false)
+        /*public async Task<EventoDto[]> GetAllEventosByTemaAsysnc(int userId, string tema, bool includePalestrantes = false)
         {
             try
             {
@@ -127,7 +128,7 @@ namespace ProEventos.Application
             {
                 throw new Exception(ex.Message); ;
             }
-        }
+        }*/
 
         public async Task<EventoDto> GetEventoByIdAsysnc(int userId, int eventoId, bool includePalestrantes = false)
         {

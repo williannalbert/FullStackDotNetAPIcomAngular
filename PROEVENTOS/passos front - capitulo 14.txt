@@ -32,3 +32,5 @@ ng g guard guard/auth
 11 - MUUUUUUUUIIIIIITOOO IMPORTANTE
 por conta do service ser chamado sempre que há atualização na página ou chamada via url, é FUNDAMENTAL incluir o AccountService no app.component
 isso irá atualizar o service sempre que chamado
+
+12 - criar model identity -> userupdate

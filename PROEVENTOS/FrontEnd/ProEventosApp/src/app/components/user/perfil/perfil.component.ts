@@ -35,7 +35,6 @@ export class PerfilComponent implements OnInit {
     this.spinner.show();
     this.accountService.getUser().subscribe(
       (userRetorno: UserUpdate) => {
-        console.log(userRetorno)
         this.userUpdate = userRetorno;
         this.form.patchValue(this.userUpdate);
         this.toaster.success('Usuário carregado com sucesso', 'Sucesso');
