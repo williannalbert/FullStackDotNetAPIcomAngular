@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using ProEventos.API.Extensions;
 using ProEventos.Application.Contratos;
 using ProEventos.Application.Dtos;
-
+using ProEventos.Persistence.Models;
 
 namespace ProEventos.API.Controllers;
 
@@ -26,11 +26,11 @@ public class EventoController : ControllerBase
     }
 
     [HttpGet]
-    public async Task<IActionResult> Get()
+    public async Task<IActionResult> Get([FromQuery]PageParams pageParams)
     {
         try
         {
-            EventoDto[] eventos = await _eventoService.GetAllEventosAsysnc(User.GetUserId(), true);
+            PageList<EventoDto> eventos = await _eventoService.GetAllEventosAsysnc(User.GetUserId(), pageParams, true);
             if(eventos == null) return NotFound("Nenhum evento encontrado");
 
             return Ok(eventos);
@@ -56,21 +56,6 @@ public class EventoController : ControllerBase
         }
     }
 
-    [HttpGet("tema/{tema}")]
-    public async Task<IActionResult> GetByTema(string tema)
-    {
-        try
-        {
-            EventoDto[] evento = await _eventoService.GetAllEventosByTemaAsysnc(User.GetUserId(), tema, true);
-            if (evento == null) return NotFound("Nenhum evento encontrado");
-
-            return Ok(evento);
-        }
-        catch (Exception ex)
-        {
-            return this.StatusCode(StatusCodes.Status500InternalServerError, "Erro ao consultar eventos. Erro: " + ex.Message);
-        }
-    }
     [HttpPost]
     public async Task<IActionResult> Post(EventoDto eventoModel)
     {

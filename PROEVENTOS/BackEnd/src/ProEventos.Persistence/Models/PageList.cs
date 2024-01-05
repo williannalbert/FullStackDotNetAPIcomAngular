@@ -13,6 +13,10 @@ namespace ProEventos.Persistence.Models
         public int TotalPage { get; set; }
         public int PageSize { get; set; }
         public int TotalCount { get; set; }
+        public PageList()
+        {
+            
+        }
 
         //herança de T ao iniciar e no constutor, e significa que é uma lista gennérica
         public PageList(List<T> items, int count, int pageNumber, int pageSize)
