@@ -33,6 +33,9 @@ public class EventoController : ControllerBase
             PageList<EventoDto> eventos = await _eventoService.GetAllEventosAsysnc(User.GetUserId(), pageParams, true);
             if(eventos == null) return NotFound("Nenhum evento encontrado");
 
+            //AddPagination criado em Extensions
+            Response.AddPagination(eventos.CurrentPage, eventos.PageSize, eventos.TotalCount, eventos.TotalPage);
+
             return Ok(eventos);
         }
         catch (Exception ex)
