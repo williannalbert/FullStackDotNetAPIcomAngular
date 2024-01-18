@@ -9,7 +9,7 @@
               class="form-control" 
               name="buscar" 
               placeholder="Buscar por tema ou local" 
-              [(ngModel)]="filtroLista">
+              (input)="filtrarEventos($event.target)">
           </div>
       </div>
       <div>
@@ -39,7 +39,7 @@
           </tr>
       </thead>
       <tbody *ngIf="eventos && eventos.length">
-          <tr *ngFor="let evento of eventosFiltrados" 
+          <tr *ngFor="let evento of eventos" 
             (click)="detalheEvento(evento.id)"
             style="cursor:pointer;">
               <td class="d-none d-md-table-cell">
@@ -72,12 +72,18 @@
       </tfoot>
   </table>
   <div class="d-flex justify-content-center">
-      <pagination [boundaryLinks]="true" 
-                [totalItems]="77"
-                previousText="&lsaquo;" 
-                nextText="&rsaquo;" 
-                firstText="&laquo;" 
-                lastText="&raquo;">
+      <pagination 
+        [boundaryLinks]="true" 
+        [totalItems]="pagination.totalItems"
+        (pageChanged)="pageChanged($event)"
+        [(ngModel)]="pagination.currentPage"
+        [itemsPerPage]="pagination.itemsPerPage"
+        
+        pageBtnClass="btn"
+        previousText="&lsaquo;" 
+        nextText="&rsaquo;" 
+        firstText="&laquo;" 
+        lastText="&raquo;">
      
     </pagination>
   </div>

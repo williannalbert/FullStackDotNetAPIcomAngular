@@ -18,3 +18,13 @@ Necessário criar um construtor vazio para PageList, e em EventoService criar um
 
 7 - Criar uma classe em Extensions -> Pagination
 *Necessário para incluir a paginação ao Header da requisição, que será usado no angular
+---------------------------------------------------------------------
+ANGULAR
+----------------------------------------------------------------------
+8 - Importar o Pagination em app modules 
+
+9 - criar classe em models -> Pagination
+
+10 - alterar a service de eventos para incluir paginação
+
+11 - incluir o component debounceTime no evento-lista.component.ts para que não seja feita uma requisição a cada letra digitada. Setado um timer
