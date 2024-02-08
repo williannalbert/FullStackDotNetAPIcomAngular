@@ -27,7 +27,7 @@ namespace ProEventos.Application
             _mapper = mapper;
         }
 
-        public async Task AddEvento(int eventoId, LoteDto model)
+        public async Task AddLote(int eventoId, LoteDto model)
         {
             try
             {
@@ -54,7 +54,7 @@ namespace ProEventos.Application
                 {
                     if(model.Id == 0)
                     {
-                        await AddEvento(eventoId, model);
+                        await AddLote(eventoId, model);
                     }
                     else
                     {
