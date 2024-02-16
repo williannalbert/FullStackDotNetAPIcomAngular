@@ -15,7 +15,7 @@ namespace ProEventos.Persistence
     {
         private readonly ProEventosContext _context;
 
-        public RedeSocialPersist(ProEventosContext context)
+        public RedeSocialPersist(ProEventosContext context) : base(context)
         {
             _context = context;
         }
