@@ -1,6 +1,8 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using ProEventos.API.Extensions;
+using ProEventos.API.Helpers;
+using ProEventos.Application;
 using ProEventos.Application.Contratos;
 using ProEventos.Application.Dtos;
 using System.Security.Claims;
@@ -13,12 +15,15 @@ namespace ProEventos.API.Controllers
 
     public class UserController : ControllerBase
     {
+        private readonly string _destino = "Perfil";
+        private readonly IUtil _util;
         public IUserService _userService { get; }
         public ITokenService _tokenService { get; }
-        public UserController(IUserService userService, ITokenService tokenService)
+        public UserController(IUserService userService, ITokenService tokenService, IUtil util)
         {
             _userService = userService;
             _tokenService = tokenService;
+            _util = util;
         }
         [HttpGet("GetUser")]
         public async Task<IActionResult> GetUser()
@@ -117,6 +122,31 @@ namespace ProEventos.API.Controllers
             catch (Exception ex)
             {
                 return this.StatusCode(StatusCodes.Status500InternalServerError, "Erro ao atualizar usuario. Erro: " + ex.Message);
+            }
+        }
+
+        [HttpPost("upload-imagem")]
+        public async Task<IActionResult> UploadImagem()
+        {
+            try
+            {
+                UserUpdateDto usuario = await _userService.GetUserByUserNameAsync(User.GetUserName());
+                if (usuario == null) return NoContent();
+
+                IFormFile file = Request.Form.Files[0];
+                if (file.Length > 0)
+                {
+                    _util.DeleteImage(usuario.ImgUrl, _destino);
+                    usuario.ImgUrl = await _util.SaveImage(file, _destino);
+                }
+
+                UserUpdateDto usuarioRetorno = await _userService.UpdateAccount(usuario);
+
+                return Ok(usuarioRetorno);
+            }
+            catch (Exception ex)
+            {
+                return this.StatusCode(StatusCodes.Status500InternalServerError, "Erro ao adicionar imagem ao usuario. Erro: " + ex.Message);
             }
         }
 
