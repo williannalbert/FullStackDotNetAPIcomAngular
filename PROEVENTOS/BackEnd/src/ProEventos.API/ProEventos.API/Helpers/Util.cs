@@ -13,9 +13,13 @@ namespace ProEventos.API.Helpers
         }
         public void DeleteImage(string imageName, string destino)
         {
-            var caminhoImagem = Path.Combine(_hostEnvironment.ContentRootPath, @$"Recursos/{destino}", imageName);
-            if (System.IO.File.Exists(caminhoImagem))
-                System.IO.File.Delete(caminhoImagem);
+            if (!string.IsNullOrEmpty(imageName))
+            {
+                var caminhoImagem = Path.Combine(_hostEnvironment.ContentRootPath, @$"Recursos/{destino}", imageName);
+                if (System.IO.File.Exists(caminhoImagem))
+                    System.IO.File.Delete(caminhoImagem);
+
+            }
         }
         public async Task<string> SaveImage(IFormFile arquivoImagem, string destino)
         {
