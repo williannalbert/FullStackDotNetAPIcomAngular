@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { PaginatedResult, Pagination } from '@app/models/Pagination';
 import { Palestrante } from '@app/models/Palestrante';
 import { PalestranteService } from '@app/services/palestrante.service';
+import { environment } from '@environment/environment';
 import { BsModalService } from 'ngx-bootstrap/modal';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { ToastrService } from 'ngx-toastr';
@@ -74,5 +75,12 @@ export class PalestranteListaComponent implements OnInit {
           this.toastr.error('Erro ao carregar palestrantes', 'Erro')
         },
     ).add(() => this.spinner.hide());
+  }
+
+  public getImgUrl(imagemName: string):string{
+    if(imagemName)
+      return environment.apiURL+`recursos/perfil/${imagemName}`;
+    else
+      return './assets/img/perfil.png';
   }
 }
