@@ -35,8 +35,6 @@ export class PerfilComponent implements OnInit {
       this.imagemURL = environment.apiURL+`recursos/perfil/${this.usuario.imgUrl}`;
     else
     this.imagemURL ='./assets/img/perfil.png';
-
-    console.log(this.usuario);
   }
 
   onFileChange(ev: any): void{
